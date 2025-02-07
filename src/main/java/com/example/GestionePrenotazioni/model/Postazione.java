@@ -32,11 +32,11 @@ public class Postazione {
     @JoinColumn(name = "prenotazione_id")
     private Prenotazione booking;
 
-    public Postazione(String description, TipoDiPostazione tipoDiPostazione, long numberMaxOfPersons, Edificio edificio) {
+    public Postazione(String description, TipoDiPostazione tipoDiPostazione, long numberMaxOfPersons) {
         this.description = description;
         this.tipoDiPostazione = tipoDiPostazione;
         this.numberMaxOfPersons = numberMaxOfPersons;
-        this.edificio = edificio;
+
     }
 
 }
