@@ -80,7 +80,7 @@ public class BookingConfiguration {
         return new Postazione("Sala conferenze", TipoDiPostazione.SALA_RUINIONI,200);
     }
 
-    @Bean(name = "sala_consiglio_Amministrazione")
+    @Bean(name = "sala_consiglio_amministrazione")
     @Scope("prototyope")
     public Postazione meetingRoomMediumBig(){
         return new Postazione("Sala riunioni Consiglio di amministarzione",
@@ -94,7 +94,7 @@ public class BookingConfiguration {
                 TipoDiPostazione.ONPENSPACE,50);
 
     }
-    @Bean(name = "sala_riunioni2")
+    @Bean(name = "sala_riunioni_piccola")
     @Scope("prototyope")
     public Postazione meetingRoomSmall(){
         return new Postazione("Sala riunione ad uso interno",

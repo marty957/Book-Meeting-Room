@@ -29,39 +29,17 @@ public class UtenteService {
         return costumUtenteProvider.getObject();
     }
 
-    public void insertAdmin(Utente u) {
-        db.save(u);
-        System.out.println("Admin inserito in DB correttamente");
-    }
-    public void insertFakeUtente(Utente u) {
-        db.save(u);
-        System.out.println("Utente Fake inserito in DB correttamente");
-    }
-    public void insertCostumUtente(Utente u) {
+    public void insertUtente(Utente u) {
         db.save(u);
         System.out.println("Utente inserito in DB correttamente");
     }
-    public void upDateAdmin(Utente u) {
-        db.save(u);
-        System.out.println("Admin aggiornato in DB correttamente");
-    }
-    public void upDateFakeUtente(Utente u) {
-        db.save(u);
-        System.out.println("Utente Fake aggiornato in DB correttamente");
-    }
-    public void upDateCostumUtente(Utente u) {
+
+    public void upDateUtente(Utente u) {
         db.save(u);
         System.out.println("Utente aggiornato in DB correttamente");
     }
-  public void deleteAdmin(Utente u){
-        db.delete(u);
-        System.out.println("Admin eliminato da DB");
-    }
-    public void deleteFakeUtente(Utente u){
-        db.delete(u);
-        System.out.println("Utente Fake eliminato da DB");
-    }
-    public void deleteCostumUtente(Utente u){
+
+    public void deleteUtente(Utente u){
         db.delete(u);
         System.out.println("Utente eliminato da DB");
     }

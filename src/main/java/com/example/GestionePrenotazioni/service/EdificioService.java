@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class EdificioService {
     @Autowired
@@ -35,6 +37,27 @@ public class EdificioService {
 
     }
 
+    public void insertEdificio(Edificio e){
+        db.save(e);
+        System.out.println("edificio inserito in db correttamente");
+    }
+
+    public void upDateEdificio(Edificio e){
+        db.save(e);
+        System.out.println("edificio aggiornato correttamente in DB");
+    }
+
+    public void deleteEdificio(Edificio e){
+        db.delete(e);
+        System.out.println("edificio eliminato in DB");
+    }
+
+    public Edificio getEdificio(long id){
+        return db.findById(id).get();
+    }
+   public List<Edificio> getAllEdifici(){
+        return db.findAll();
+}
 
 
 
