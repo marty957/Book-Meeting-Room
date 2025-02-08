@@ -22,7 +22,7 @@ public class Prenotazione {
     @Id
     @GeneratedValue
     private long idPrenotazione;
-    @Column(nullable = false,unique = true)
+    @Column(nullable = false)
     private LocalDate date;
 
     @ManyToOne
@@ -36,4 +36,14 @@ public class Prenotazione {
     public Prenotazione(LocalDate date) {
         this.date = date;
     }
+
+    public void addPostazione(Postazione p){
+        this.postazione=p;
+    }
+
+    public void addUtente(Utente u){
+        this.utente=u;
+    }
+
+
 }

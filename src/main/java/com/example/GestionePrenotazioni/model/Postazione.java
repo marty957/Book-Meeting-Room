@@ -30,7 +30,7 @@ public class Postazione {
     @JoinColumn(name = "edificio_id")
     private Edificio edificio;
 
-    @OneToMany (mappedBy ="postazione" )
+    @OneToMany(mappedBy = "postazione")
     private List<Prenotazione> booking;
 
     public Postazione(String description, TipoDiPostazione tipoDiPostazione, long numberMaxOfPerson) {
@@ -39,7 +39,10 @@ public class Postazione {
         this.numberMaxOfPersons = numberMaxOfPerson;
     }
 
-    public void addEdificio(Edificio e){
-        this.edificio=e;
+    public void addEdificio(Edificio e) {
+        this.edificio = e;
     }
+
 }
+
+

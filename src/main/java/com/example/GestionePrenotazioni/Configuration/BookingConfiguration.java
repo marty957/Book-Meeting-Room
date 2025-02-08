@@ -108,7 +108,7 @@ public class BookingConfiguration {
     @Bean(name = "prenotazioni")
     @Scope("prototype")
     public Prenotazione prenotazione(){
-        return new Prenotazione(LocalDate.now());
+        return new Prenotazione();
     }
 
     @Bean(name = "prenotazioniFake")
@@ -119,7 +119,6 @@ public class BookingConfiguration {
         long end=LocalDate.of(2025,02,06).toEpochDay();
         long randomDays= ThreadLocalRandom.current().nextLong(start,end);
         LocalDate randomDate= LocalDate.ofEpochDay(randomDays);
-
         return new Prenotazione(randomDate);
 
     }

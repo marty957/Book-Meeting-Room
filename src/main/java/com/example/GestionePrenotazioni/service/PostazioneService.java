@@ -61,7 +61,7 @@ public class PostazioneService {
         System.out.println("Postazione eliminata in DB");
     }
 
-    public Postazione findBYiD(long id){
+    public Postazione getPostazione(long id){
         return db.findById(id).get();
     }
 
