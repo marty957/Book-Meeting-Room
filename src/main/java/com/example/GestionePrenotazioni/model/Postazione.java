@@ -8,6 +8,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @Table(name = "postazioni")
 @NoArgsConstructor
@@ -28,15 +30,16 @@ public class Postazione {
     @JoinColumn(name = "edificio_id")
     private Edificio edificio;
 
-    @ManyToOne
-    @JoinColumn(name = "prenotazione_id")
-    private Prenotazione booking;
+    @OneToMany (mappedBy ="postazione" )
+    private List<Prenotazione> booking;
 
-    public Postazione(String description, TipoDiPostazione tipoDiPostazione, long numberMaxOfPersons) {
+    public Postazione(String description, TipoDiPostazione tipoDiPostazione, long numberMaxOfPerson) {
         this.description = description;
         this.tipoDiPostazione = tipoDiPostazione;
-        this.numberMaxOfPersons = numberMaxOfPersons;
-
+        this.numberMaxOfPersons = numberMaxOfPerson;
     }
 
+    public void addEdificio(Edificio e){
+        this.edificio=e;
+    }
 }

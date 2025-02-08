@@ -20,7 +20,7 @@ import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 @Configuration
-@PropertySource("applcation.properies")
+@PropertySource("application.properties")
 public class BookingConfiguration {
 
     @Value("${user.admin.username}") private String adminUsername;
@@ -56,12 +56,12 @@ public class BookingConfiguration {
     }
     @Bean(name= "edificio_Verdi")
     public Edificio edificioVerdi(){
-        Faker fake = Faker.instance( new Locale("it-IT"));
+
         return new Edificio("Verdi","via venezia 25","Nettuno");
     }
     @Bean(name= "edificio_Bianchi")
     public Edificio edificioBianchi(){
-        Faker fake = Faker.instance( new Locale("it-IT"));
+
         return new Edificio("Bianchi","Via della Reppublica 1","Perugia");
     }
 
@@ -69,7 +69,7 @@ public class BookingConfiguration {
     @Scope("prototype")
     public Edificio edificioAffittato(){
         Faker fake = Faker.instance( new Locale("it-IT"));
-        return new Edificio(fake.name().name(),fake.address().streetAddress(),fake.address().city());
+        return new Edificio(fake.name().lastName(),fake.address().streetAddress(),fake.address().cityName());
     }
     // BEAN PER POSTAZIONI
 
@@ -77,25 +77,26 @@ public class BookingConfiguration {
     @Bean(name = "sale_conferenze")
     @Scope("prototype")
     public Postazione meetingRoomBig(){
-        return new Postazione("Sala conferenze", TipoDiPostazione.SALA_RUINIONI,200);
+        return new Postazione("Sala conferenze",
+                TipoDiPostazione.SALA_RUINIONI,200);
     }
 
     @Bean(name = "sala_consiglio_amministrazione")
-    @Scope("prototyope")
+    @Scope("prototype")
     public Postazione meetingRoomMediumBig(){
         return new Postazione("Sala riunioni Consiglio di amministarzione",
                 TipoDiPostazione.SALA_RUINIONI,120);
 
     }
     @Bean(name = "sala_riunioni")
-    @Scope("prototyope")
+    @Scope("prototype")
     public Postazione meetingRoomMedium(){
         return new Postazione("Sala riunione Annuali/Mensili con attrezzature audio visive",
                 TipoDiPostazione.ONPENSPACE,50);
 
     }
     @Bean(name = "sala_riunioni_piccola")
-    @Scope("prototyope")
+    @Scope("prototype")
     public Postazione meetingRoomSmall(){
         return new Postazione("Sala riunione ad uso interno",
                 TipoDiPostazione.PRIVATO,20);

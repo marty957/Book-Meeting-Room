@@ -7,6 +7,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @Table(name = "utenti")
 @NoArgsConstructor
@@ -25,9 +27,9 @@ public class Utente {
     @Column(nullable = false)
     private String email;
 
-    @ManyToOne
-    @JoinColumn(name = "utente_id")
-    private Prenotazione prenotazione;
+    @OneToMany(mappedBy = "utente")
+
+    private List<Prenotazione> prenotazione;
 
     public Utente(String username, String fullname, String email) {
         this.username = username;

@@ -52,7 +52,11 @@ public class EdificioService {
         System.out.println("edificio eliminato in DB");
     }
 
-    public Edificio getEdificio(long id){
+    public Edificio getEdificio(String name){
+        Edificio e= db.findByName(name);
+        return e;
+    }
+    public Edificio getById(long id){
         return db.findById(id).get();
     }
    public List<Edificio> getAllEdifici(){

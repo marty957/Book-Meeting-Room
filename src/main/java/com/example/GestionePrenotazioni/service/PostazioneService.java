@@ -1,6 +1,7 @@
 package com.example.GestionePrenotazioni.service;
 
 
+import com.example.GestionePrenotazioni.model.Edificio;
 import com.example.GestionePrenotazioni.model.Postazione;
 import com.example.GestionePrenotazioni.repository.PostazioneDAORepository;
 import org.springframework.beans.factory.ObjectProvider;
@@ -22,24 +23,30 @@ public class PostazioneService {
     @Autowired @Qualifier("sala_riunioni_piccola") private ObjectProvider<Postazione> salaPiccola;
 
 
-    public Postazione createSalaConf(){
-        return salaConfProvider.getObject();
+    public Postazione createSalaConf(Edificio edificio){
+        Postazione p=salaConfProvider.getObject();
+        p.addEdificio(edificio);
+        return p;
     }
 
-    public Postazione createSalaConsAmministrazione(){
-        return salaCoonsiglioAmmProvider.getObject();
+    public Postazione createSalaConsAmministrazione(Edificio edificio){
+        Postazione p=salaCoonsiglioAmmProvider.getObject();
+        p.addEdificio(edificio);
+        return p;
+    }
+
+    public Postazione createSala(Edificio edificio){
+        Postazione p=salaProvider.getObject();
+        p.addEdificio(edificio);
+        return p;
     }
 
 
-    public Postazione createSala(){
-        return salaProvider.getObject();
+    public Postazione createSalaSmall(Edificio edificio){
+        Postazione p=salaPiccola.getObject();
+        p.addEdificio(edificio);
+        return p;
     }
-
-
-    public Postazione createSalaSmall(){
-        return salaPiccola.getObject();
-    }
-
 
     public void insertPostazione(Postazione p){
         db.save(p);

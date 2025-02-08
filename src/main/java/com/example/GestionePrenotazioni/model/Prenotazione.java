@@ -22,15 +22,16 @@ public class Prenotazione {
     @Id
     @GeneratedValue
     private long idPrenotazione;
-    @Column(nullable = false)
+    @Column(nullable = false,unique = true)
     private LocalDate date;
 
+    @ManyToOne
+    @JoinColumn(name = "utente_id")
+    private Utente utente;
 
-    @OneToMany(mappedBy = "booking")
-    private List<Postazione> postazioni;
-
-    @OneToMany(mappedBy = "prenotazione")
-    private List<Utente> utenti;
+    @ManyToOne
+    @JoinColumn(name="postazione_id")
+    private Postazione postazione;
 
     public Prenotazione(LocalDate date) {
         this.date = date;

@@ -11,7 +11,6 @@ import java.util.List;
 
 @Entity
 @Table(name = "edifici")
-@NoArgsConstructor
 @AllArgsConstructor
 @Data
 @Builder
@@ -38,5 +37,8 @@ public class Edificio {
         this.address = address;
         this.city = city;
         this.postazioni = postazioni;
+    }
+
+    public Edificio() {
     }
 }

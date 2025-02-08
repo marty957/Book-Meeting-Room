@@ -21,6 +21,7 @@ public class PrenotazioniService {
 
 
     public Prenotazione createPrenotazione(){
+
         return prenotazioneProvider.getObject();
     }
 
