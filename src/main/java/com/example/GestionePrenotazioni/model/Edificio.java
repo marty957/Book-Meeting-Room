@@ -23,7 +23,7 @@ public class Edificio {
     private String address;
     private String city;
 
-    @OneToMany(mappedBy = "edificio")
+    @OneToMany(mappedBy = "edificio",fetch = FetchType.EAGER)
     List<Postazione> postazioni;
 
     public Edificio(String name, String address, String city) {
@@ -37,6 +37,17 @@ public class Edificio {
         this.address = address;
         this.city = city;
         this.postazioni = postazioni;
+    }
+
+    @Override
+    public String toString() {
+        return "Edificio{" +
+                "idEdificio=" + idEdificio +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", city='" + city + '\'' +
+                ", postazioni=" + postazioni +
+                '}';
     }
 
     public Edificio() {

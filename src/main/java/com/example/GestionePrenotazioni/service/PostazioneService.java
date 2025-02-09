@@ -1,6 +1,7 @@
 package com.example.GestionePrenotazioni.service;
 
 
+import com.example.GestionePrenotazioni.enumaration.TipoDiPostazione;
 import com.example.GestionePrenotazioni.model.Edificio;
 import com.example.GestionePrenotazioni.model.Postazione;
 import com.example.GestionePrenotazioni.repository.PostazioneDAORepository;
@@ -70,7 +71,10 @@ public class PostazioneService {
     }
 
 
+  public List<Postazione>findAllByTipoAndEdifico_city(TipoDiPostazione tipo,String city){
 
+        return db.findAllByTipoAndEdificio_City(TipoDiPostazione.SALA_RUINIONI,"Nettuno");
+}
 
 
 }

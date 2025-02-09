@@ -1,5 +1,6 @@
 package com.example.GestionePrenotazioni.runner;
 
+import com.example.GestionePrenotazioni.enumaration.TipoDiPostazione;
 import com.example.GestionePrenotazioni.model.Postazione;
 import com.example.GestionePrenotazioni.service.EdificioService;
 import com.example.GestionePrenotazioni.service.PostazioneService;
@@ -7,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 
 @Component
@@ -66,6 +69,7 @@ public class PostazioneRunner implements CommandLineRunner {
         postazioneService.insertPostazione(salaRiunioniPiccolaB);
 
 
+
         postazioneService.insertPostazione(salaConferenze1);
         postazioneService.insertPostazione(salaConsiglioAmm1);
         postazioneService.insertPostazione(salaRiunioni1);
@@ -73,5 +77,8 @@ public class PostazioneRunner implements CommandLineRunner {
 
 */
 
-    }
-}
+        List<Postazione> lista=postazioneService.findAllByTipoAndEdifico_city(TipoDiPostazione.ONPENSPACE,"Nettuno");
+      lista.forEach(postazione-> System.out.println(postazione.getTipoDiPostazione() + " Di: " + postazione.getEdificio().getCity() +  '\''
+              + " per prenotare inserisci il seguente codice: " + postazione.getIdPostazione()) );
+
+}}

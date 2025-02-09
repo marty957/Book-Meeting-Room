@@ -3,12 +3,10 @@ package com.example.GestionePrenotazioni.model;
 
 import com.example.GestionePrenotazioni.enumaration.TipoDiPostazione;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Table(name = "postazioni")
@@ -41,8 +39,6 @@ public class Postazione {
 
     public void addEdificio(Edificio e) {
         this.edificio = e;
-    }
-
-}
+    }}
 
 

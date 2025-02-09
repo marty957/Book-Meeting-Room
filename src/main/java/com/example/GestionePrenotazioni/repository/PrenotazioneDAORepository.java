@@ -11,5 +11,5 @@ import java.util.List;
 @Repository
 public interface PrenotazioneDAORepository extends JpaRepository<Prenotazione,Long> {
 
-    boolean existsByDateAndPostazione(LocalDate date, Postazione postazione);
+    boolean existsByPostazioneAndDate(Postazione postazione,LocalDate date );
 }

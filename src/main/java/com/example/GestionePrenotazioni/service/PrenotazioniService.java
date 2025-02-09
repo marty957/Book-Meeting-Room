@@ -35,11 +35,9 @@ public class PrenotazioniService {
     public Prenotazione createPrenotazione(long idpos, LocalDate data, long idUtente)  {
 
         Postazione postazione=postazioneDAORepository.findById(idpos).orElseThrow(()->new PostazioneInesistente("codice postazione invalido"));
-
         Utente u = utenteDAORepository.findById(idUtente).orElseThrow(()->new UtenteInesistente("codice utente inesistente"));
 
-
-       if(db.existsByDateAndPostazione(data,postazione)){
+       if(db.existsByPostazioneAndDate(postazione,data)){
            throw new PrenotazioneInvalida("la postazione è gia prenotata per la data indicata");
        }
         Prenotazione p=prenotazioneProvider.getObject();
@@ -53,10 +51,15 @@ public class PrenotazioniService {
 
         Postazione postazione=postazioneDAORepository.findById(idpos).orElseThrow(()->new PostazioneInesistente("codice postazione invalido"));
         Utente u = utenteDAORepository.findById(idUtente).orElseThrow(()->new UtenteInesistente("codice utente inesistente"));
-        Prenotazione p=prenotazioneProvider.getObject();
+        Prenotazione p=prenotazioneFakeProvider.getObject();
+        LocalDate data=p.getDate();
 
-        if(db.existsByDateAndPostazione(p.getDate(),postazione)){
-            throw new PrenotazioneInvalida("la postazione è gia prenotata per la data indicata");
+        if(db.existsByPostazioneAndDate(postazione,data)){
+            try {
+                throw new PrenotazioneInvalida("la postazione è gia prenotata per la data indicata");
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
         }
         p.addPostazione(postazione);
         p.setUtente(u);
