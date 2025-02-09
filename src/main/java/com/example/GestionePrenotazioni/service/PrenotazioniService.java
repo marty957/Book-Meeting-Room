@@ -47,6 +47,10 @@ public class PrenotazioniService {
        return p;
     }
 
+
+// METEDO CREATO MA MAI UTILIZZATO PERCHE MI CREAVA DEI BUG CHE NON SONO RIUSCITA A RISOLVERE,
+// HO TENUTO IL CODICE PERCHE' PER CREARE SIA QUESTO METODO CHE IL BEAN DI RIFERIMENTO CI HO MESSO UN PO
+// (SOPRATTUTO PER IL BEAN CON LA DATA RANDOM) E MI DISPIACEVA BUTTARE IL LAVORO, ANCHE SE INCOMPIUTO.
     public Prenotazione createFakePrenotazione(long idpos,long idUtente){
 
         Postazione postazione=postazioneDAORepository.findById(idpos).orElseThrow(()->new PostazioneInesistente("codice postazione invalido"));
